@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClickPostActivity"
+    android:background="@drawable/register">
+
+    <ImageView
+        android:id="@+id/click_post_image"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:id="@+id/click_post_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/click_post_image"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:ems="10"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:background="@drawable/inputs"
+        android:hint="Post description ..."
+        android:inputType="textMultiLine"
+        />
+    <Button
+        android:id="@+id/edit_post_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="Edit Post"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:background="@drawable/button"
+        android:layout_above="@+id/delete_post_button"
+        android:textColor="@color/white"
+        />
+    <Button
+        android:id="@+id/delete_post_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Delete Post"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:background="@drawable/button"
+        android:textColor="@color/white"
+        />
+</RelativeLayout>
