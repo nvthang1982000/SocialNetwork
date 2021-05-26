@@ -1,4 +1,4 @@
-package com.example.socialnetwork;
+package com.example.socialnetwork.Activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.socialnetwork.Comments;
+import com.example.socialnetwork.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
