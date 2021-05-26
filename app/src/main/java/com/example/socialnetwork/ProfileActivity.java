@@ -139,10 +139,12 @@ public class ProfileActivity extends AppCompatActivity {
     {
         Intent friendsIntent = new Intent(ProfileActivity.this, FriendsActivity.class);
         startActivity(friendsIntent);
+        finish();
     }
     private void SendUserToMyPostsActivity()
     {
         Intent mypostsIntent = new Intent(ProfileActivity.this, MyPostsActivity.class);
         startActivity(mypostsIntent);
+        finish();
     }
 }

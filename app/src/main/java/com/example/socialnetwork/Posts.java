@@ -74,3 +74,4 @@ public class Posts {
         this.fullname = fullname;
     }
 }
+

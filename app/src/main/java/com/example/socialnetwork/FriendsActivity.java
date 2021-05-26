@@ -71,7 +71,7 @@ public class FriendsActivity extends AppCompatActivity {
         currentStateMap.put("time",saveCurrentTime);
         currentStateMap.put("type",state);
 
-        UsersRef.child(online_user_id).child("userState").updateChildren(currentStateMap);
+//        UsersRef.child(online_user_id).child("userState").updateChildren(currentStateMap);
     }
 
     @Override

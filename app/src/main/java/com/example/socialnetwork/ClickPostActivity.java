@@ -72,15 +72,16 @@ public class ClickPostActivity extends AppCompatActivity {
                             EditCurrentPost(description);
                         }
                     });
+
                 }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
         //Xoá bài
         DeletePostButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +89,6 @@ public class ClickPostActivity extends AppCompatActivity {
                 DeleteCurrentPost();
             }
         });
-
     }
 
     private void DeleteCurrentPost(){

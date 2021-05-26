@@ -178,7 +178,7 @@ public class ChatActivity extends AppCompatActivity {
         currentStateMap.put("time",saveCurrentTime);
         currentStateMap.put("type",state);
 
-        UsersRef.child(messageSenderID).child("userState").updateChildren(currentStateMap);
+//        UsersRef.child(messageSenderID).child("userState").updateChildren(currentStateMap);
     }
 
     private void DisplayReceiverInfo() {

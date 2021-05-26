@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -48,13 +49,14 @@ public class PostActivity extends AppCompatActivity {
     private StorageReference PostsImagesRefrence;
     private DatabaseReference UsersRef, PostsRef;
     private FirebaseAuth mAuth;
-    private long countPosts;
+    private long countPosts = 0;
 
     private String saveCurrentDate, saveCurrentTime, postRandomName, downloadUrl, current_user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+
         mAuth = FirebaseAuth.getInstance();
         current_user_id = mAuth.getCurrentUser().getUid();
 
@@ -121,7 +123,6 @@ public class PostActivity extends AppCompatActivity {
     }
 
 
-
     private void StoringImageToFirebaseStorage()
     {
         Calendar calFordDate = Calendar.getInstance();
@@ -144,9 +145,8 @@ public class PostActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 downloadUrl = uri.toString();
-                                Toast.makeText(PostActivity.this, "image uploaded successfully to Storage...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostActivity.this, "Image uploaded successfully to Storage...", Toast.LENGTH_SHORT).show();
                                 SavingPostInformationToDatabase();
-
                             }
                         });
 
@@ -200,6 +200,7 @@ public class PostActivity extends AppCompatActivity {
             {
                 if(dataSnapshot.exists())
                 {
+                    Log.d("tesst" , "aaaaaaaaaa");
                     final String userFullName = dataSnapshot.child("fullname").getValue().toString();
                     final String userProfileImage = dataSnapshot.child("profileimage").getValue().toString();
 

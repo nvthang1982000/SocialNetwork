@@ -3,9 +3,9 @@ package com.example.socialnetwork;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
+        Log.e("Aloooooo", "aaaaaaaaaaaaaaaaaa" + currentUserID);
 //        databaseReference=Firebase.database.getReference("Users")
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
         PostsRef = FirebaseDatabase.getInstance().getReference().child("Posts");
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        updateUserStatus("online");
         DisplayAllUsersPosts();
     }
 
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         currentStateMap.put("time",saveCurrentTime);
         currentStateMap.put("type",state);
 
-        UsersRef.child(currentUserID).child("userState").updateChildren(currentStateMap);
+//        UsersRef.child(currentUserID).child("userState").updateChildren(currentStateMap);
     }
 
 
@@ -246,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
         postList.setAdapter(firebaseRecyclerAdapter);
-        updateUserStatus("online");
+
     }
 
 
@@ -339,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
     private void SendUserToPostActivity() {
         Intent addNewPostIntent = new Intent(MainActivity.this, PostActivity.class);
         startActivity(addNewPostIntent);
+        finish();
     }
 
 
@@ -455,7 +457,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_Logout:
-                updateUserStatus("online");
+                updateUserStatus("offline");
                 mAuth.signOut();
                 SendUserToLoginActivity();
                 break;
@@ -465,11 +467,13 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent settingIntent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(settingIntent);
+
     }
     private void SendUserToProfileActivity()
     {
         Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(profileIntent);
+
     }
     private void SendUserToFindFriendsActivity()
     {
@@ -480,5 +484,6 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent friendsIntent = new Intent(MainActivity.this, FriendsActivity.class);
         startActivity(friendsIntent);
+
     }
 }
